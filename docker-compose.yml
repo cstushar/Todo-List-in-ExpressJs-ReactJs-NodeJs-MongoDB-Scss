@@ -3,28 +3,28 @@ version: '3.8'
 services:
   frontend:
     image: node:14
-    working_dir: /app/frontend
-    volumes:
-      - ./frontend:/app/frontend
+    build:
+      context: ./frontend
     ports:
       - "3000:3000"
     command: sh -c "npm install && npm install axios react-icons && npm run dev"
+    depends_on:
+      - backend
 
   backend:
     image: node:14
-    working_dir: /app/Backend
-    volumes:
-      - ./Backend:/app/Backend
+    build:
+      context: ./server
     ports:
       - "5000:5000"
     env_file:
       - .env
     command: sh -c "npm install && npm install express mongoose cors && npm install nodemon && nodemon index.js"
     depends_on:
-     - mongo
+      - mongo
 
   mongo:
-    image: mongo:latest     
+    image: mongo:latest
     volumes:
       - mongo-data:/data/db
     ports:

@@ -3,7 +3,7 @@
 A Todo List application built using the MERN stack (MongoDB, Express, React, Node.js) with SCSS for styling.
 
 ## Preview
-<picture><img src = "todolist/public/Todo.gif" width = 100%></picture>
+<picture><img src = "frontend/public/Todo.gif" width = 100%></picture>
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```
 2. Install the dependencies:
    ```
-   cd todolist
+   cd frontend
    ```
    ```
    npm install
@@ -39,7 +39,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```
 5. Set up the server:   
    ```
-   cd Server
+   cd server
    ```
    ```
    npm init -y
@@ -83,7 +83,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```
 2. Start the Express server:
    ```
-   cd Server
+   cd server
    nodemon index.js
    ```
 3. Open your browser and navigate to http://localhost:3000 to see the Todo List application in action.
@@ -98,21 +98,25 @@ Follow these instructions to get a copy of the project up and running on your lo
 ## File Structure
 ```
 .
-├── Server
+├── server
 │   ├── Models
 │   │   └── Todo.js
-│   ├── index.js
-├── public
-│   └── index.html
-├── src
-│   ├── components
-│   │   ├── Create.jsx
-│   │   └── Home.jsx
-│   ├── App.scss
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-├── README.md
+│   ├──  index.js
+│   └── package.json
+├── frontend
+│       ├── public
+│       │   └── index.html
+│       ├── src
+│       │   ├── components
+│       │   │   ├── Create.jsx
+│       │   │   └── Home.jsx
+│       │   ├── App.scss
+│       │   ├── App.jsx
+│       │   └── main.jsx
+│       ├── package.json
+│       └──  README.md
+├──  package.json
+├──  README.md
 └── .gitignore
 ```
 
