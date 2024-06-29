@@ -1,27 +1,23 @@
-version: "3.8"
+version: '3.8'
 
 services:
   frontend:
     container_name: frontend 
-    image: node:14
     build:
-      context: ./todolist
+      context: ./todolist./public
     ports:
       - "3000:3000"
-    command: sh -c "npm install && npm start"
     depends_on:
       - backend
 
   backend:
     container_name: backend 
-    image: node:14
     build:
       context: ./Server
     ports:
       - "5000:5000"
-    command: sh -c "npm install && npm start"
     env_file:
-      - .env.sample
+      - .env
     depends_on:
       - mongo
 
