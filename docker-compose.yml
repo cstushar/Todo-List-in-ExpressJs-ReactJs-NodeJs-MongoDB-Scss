@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: frontend 
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend 
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    command: sh -c "npm install && npm start"
+    environment:
+      - .env.sample
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongo 
+    image: mongo:latest
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo-data:
