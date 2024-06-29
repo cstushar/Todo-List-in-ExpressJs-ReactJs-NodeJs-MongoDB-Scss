@@ -3,8 +3,7 @@ version: '3.8'
 services:
   frontend:
     image: node:14
-    build:
-      context: ./frontend
+    working_dir: ./frontend
     ports:
       - "3000:3000"
     command: sh -c "npm install && npm install axios react-icons && npm run dev"
@@ -13,8 +12,7 @@ services:
 
   backend:
     image: node:14
-    build:
-      context: ./server
+    working_dir: ./server
     ports:
       - "5000:5000"
     env_file:
